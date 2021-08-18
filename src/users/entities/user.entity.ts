@@ -8,7 +8,7 @@ import {
 import * as bcrypt from 'bcrypt';
 import { IsEmail, IsEnum } from 'class-validator';
 import { CoreEntity } from 'src/common/entities/core.entity';
-import { BeforeInsert, Column } from 'typeorm';
+import { BeforeInsert, BeforeUpdate, Column } from 'typeorm';
 
 enum UserRole {
   Client,
@@ -36,6 +36,7 @@ export class User extends CoreEntity {
   role: UserRole;
 
   @BeforeInsert()
+  @BeforeUpdate()
   async hashPassword(): Promise<void> {
     try {
       this.password = await bcrypt.hash(this.password, 10);
