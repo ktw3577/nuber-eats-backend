@@ -12,9 +12,9 @@ import { Restaurant } from 'src/restaurants/entities/restaurant.entity';
 import { BeforeInsert, BeforeUpdate, Column, Entity, OneToMany } from 'typeorm';
 
 export enum UserRole {
-  Client = 'CLIENT',
-  Owner = 'OWNER',
-  Delivery = 'DELIVERY',
+  Client = 'Client',
+  Owner = 'Owner',
+  Delivery = 'Delivery',
 }
 
 registerEnumType(UserRole, { name: 'UserRole' });
